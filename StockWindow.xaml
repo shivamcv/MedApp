@@ -1,0 +1,59 @@
+﻿<Window x:Class="MedApp.StockWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="StockWindow" Height="545" Width="431">
+    <Grid HorizontalAlignment="Stretch">
+        <Grid Height="40" VerticalAlignment="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"></ColumnDefinition>
+                <ColumnDefinition Width="1*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Button Name="AddStockMenu" Content="Add Stock" Grid.Column="0" Click="AddStockShow"/>
+            <Button Name="ViewStockMenu" Content="View Stock" Grid.Column="1" Click="ViewStockShow"/>
+
+        </Grid>
+        <Grid HorizontalAlignment="Stretch" Name="GrdAdd" Margin="0,0,0,-14">
+            <Grid.Resources>
+                <Style TargetType="TextBox">
+                    <Setter Property="Width" Value="200"></Setter>
+                    <Setter Property="Height" Value="30"></Setter>
+                    <Setter Property="FontSize" Value="18"></Setter>
+                    <Setter Property="Padding" Value="0,4,0,0"></Setter>
+                </Style>
+                <Style TargetType="Label">
+                    <Setter Property="FontSize" Value="20"></Setter>
+                </Style>
+            </Grid.Resources>
+            <Label Content="Name of product: " HorizontalAlignment="Left" Margin="0,75,0,0" Name="lblNameOfProd" VerticalAlignment="Top" />
+            <Label Content="M.R.P: " HorizontalAlignment="Left" Margin="1,125,0,0" Name="label2" VerticalAlignment="Top" />
+            <Label Content="Pack: " HorizontalAlignment="Left" Margin="1,175,0,0" Name="label3" VerticalAlignment="Top" />
+            <Label Content="Batch No.: " HorizontalAlignment="Left" Margin="1,225,0,0" Name="label4" VerticalAlignment="Top" />
+            <Label Content="Rate: " HorizontalAlignment="Left" Margin="1,275,0,0" Name="label5" VerticalAlignment="Top" />
+            <Label Content="Date of purchase: " HorizontalAlignment="Left" Margin="1,325,0,0" Name="label6" VerticalAlignment="Top" />
+            <Label Content="Expiry Date: " HorizontalAlignment="Left" Margin="1,375,0,0" Name="label7" VerticalAlignment="Top" />
+            <TextBox HorizontalAlignment="Left" Margin="177,75,0,0" Name="txtNameOfProd" VerticalAlignment="Top" Padding="0, 4, 0, 0"/>
+            <TextBox HorizontalAlignment="Left" Margin="177,125,0,0" Name="txtMRP" VerticalAlignment="Top" />
+            <TextBox HorizontalAlignment="Left" Margin="177,175,0,0" Name="txtPack" VerticalAlignment="Top" />
+            <TextBox HorizontalAlignment="Left" Margin="177,225,0,0" Name="txtBatch" VerticalAlignment="Top" />
+            <TextBox HorizontalAlignment="Left" Margin="177,275,32,0" Name="txtRate" VerticalAlignment="Top" />
+            <TextBox HorizontalAlignment="Left" Margin="177,325,0,0" Name="txtDateOfPurchase" VerticalAlignment="Top" />
+            <TextBox HorizontalAlignment="Left" Margin="177,375,0,0" Name="txtExpiryDate" VerticalAlignment="Top" />
+            <Button Content="Add Stock" Height="39" HorizontalAlignment="Left" Margin="249,449,0,0" Name="btnAdd" VerticalAlignment="Top" Width="128" Click="btnAdd_Click" />
+        </Grid>
+
+        <Grid HorizontalAlignment="Stretch" Name="GrdShow" Margin="0,0,0,-14" Visibility="Hidden">
+            <Grid.Resources>
+                <Style TargetType="TextBox">
+                    <Setter Property="Width" Value="200"></Setter>
+                    <Setter Property="Height" Value="30"></Setter>
+                    <Setter Property="FontSize" Value="18"></Setter>
+                    <Setter Property="Padding" Value="0,4,0,0"></Setter>
+                </Style>
+                <Style TargetType="Label">
+                    <Setter Property="FontSize" Value="20"></Setter>
+                </Style>
+            </Grid.Resources>
+
+        </Grid>
+    </Grid>
+</Window>

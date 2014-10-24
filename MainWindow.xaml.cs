@@ -22,20 +22,27 @@ namespace MedApp
     /// </summary>
     public partial class MainWindow : Window
     {
+        DataLayer data = new DataLayer();
+
         public MainWindow()
         {
             InitializeComponent();
+            WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
+        }
 
+        private void btnLogin_Click(object sender, RoutedEventArgs e)
+        {
             try
             {
-                using (var db = new MedDatabase())
+                if(data.IsAuthenticated(txtUserName.Text.Trim(), txtPassword.Password))
                 {
-                    //add
-                    db.Medicines.Add(new Medicine() { Name = "digine" + new Random().Next(1,100), Price = 50 });
-                    db.SaveChanges();
-
-                    //get
-                    lstDemo.ItemsSource = db.Medicines.Select(p => p.Name).ToList();
+                    StockWindow sw = new StockWindow();
+                    sw.Show();
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Please enter correct username and password..!!", "Login failed", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
             catch (Exception ex)

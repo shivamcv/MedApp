@@ -8,6 +8,7 @@ using System.IO;
 using System.Data.Entity;
 using entityd.Migrations;
 using MedApp.Data;
+using MedApp.Migrations;
 
 namespace MedApp
 {
@@ -25,12 +26,12 @@ namespace MedApp
 
             if(!Directory.Exists(StorageLocation))
             Directory.CreateDirectory(StorageLocation);
-
+         
             AppDomain.CurrentDomain.SetData("DataDirectory", StorageLocation);
+            //AppDomain.CurrentDomain.SetData("DataDirectory", Environment.SpecialFolder.CommonApplicationData);
+            ShifaDB.CreateDBFile();
 
-            MedDatabase.CreateDBFile();
-
-            Database.SetInitializer(new MigrateDatabaseToLatestVersion<MedDatabase, Configuration>());
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<ShifaDB, Configuration>());
         }
     }
 }
